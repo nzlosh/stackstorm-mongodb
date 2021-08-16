@@ -1,0 +1,19 @@
+---
+  name: "collection_list"
+  runner_type: "python-script"
+  description: "Create a collection in a database."
+  enabled: true
+  entry_point: "collection_list.py"
+  parameters:
+    profile_name:
+      type: string
+      description: "Mongodb profile to be used for the action."
+      required: false
+    db_name:
+      type: string
+      description: "The name of database to create the collection on."
+      required: true
+    name:
+      type: string
+      description: "The name of collection to created."
+      required: true

@@ -1,0 +1,15 @@
+---
+  name: "database_create"
+  runner_type: "python-script"
+  description: "Create a database on a mongo server"
+  enabled: true
+  entry_point: "database_create.py"
+  parameters:
+    profile_name:
+      type: string
+      description: "Mongodb profile to be used for the action."
+      required: false
+    db_name:
+      type: string
+      description: "The name of the database to be created."
+      required: true

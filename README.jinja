@@ -14,6 +14,11 @@ The following options are required to be configured for the pack to work correct
 | `{{ key }}` | {{ value.type }} | {{ value.required }} | {{ value.secret }} | {{ value.description }} |
 {% endfor %}
 
+
+### High available setups
+
+Mongo databases using replication must have the replica set in the configuration or the action will not switch to the PRIMARY server and will fail.
+
 ## Actions
 
 {% if actions | length > 0 %}
@@ -57,19 +62,32 @@ There are no sensors available for this pack.
 
 ## Authentication
 
- * To be advised.
+ * To be able to administer MongoDB using this pack, a user account that has the privileges to manipulate databases, collections, documents is required.
+
+   For simlicity sakes, the `root` role has above and beyond the required access to preform any actions in this pack.  However, it is not recommended to use such a role in production.  The exact permissions to grant to the user will depend on the security policies of the organisation operating MongoDB.
+
+   As an example of creating a root user account:
+   ```
+   db.createUser("<db_admin_account>", { roles: [{role: "root", db: "admin"}], pwd: "<db_admin_password>"})
+   ```
+
+   For more information on authentication and authorisation, seek help from the Mongo manual:
+   - https://docs.mongodb.com/manual/core/authentication/
+   - https://docs.mongodb.com/manual/core/authorization/
+   - https://docs.mongodb.com/manual/core/security-transport-encryption/
 
 
 ## Limitations
 
- * Records can only be created or enitrely updated.  No partial record updates are currently supported.
+ * This pack is intended for MongoDB administration only and does not provide any data querying functionality.
+
 
 ## References
 
-  * This pack uses [python-powerdns](https://github.com/outini/python-powerdns).
+  * [pymongo](https://pymongo.readthedocs.io/en/stable/index.html) Python module is used in this pack.
 
 
-## Thanks to
+## Acknowledgements
   * Antü Plasma Suite for the use of the mongodb icon under the CREATIVE COMMONS BY-SA 3.0. licence.
 
 <sub>Documentation generated using [pack2md](https://github.com/nzlosh/pack2md)</sub>

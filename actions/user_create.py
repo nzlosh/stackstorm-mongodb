@@ -1,14 +1,15 @@
-from lib.base import MongoClient
+from lib.base import MongoClientAction
 
 
-class UserAdd(MongoClient):
+class UserCreate(MongoClientAction):
     """
-    Add a user to a database.
+    Create a database user.
+
+    :profile_name: The name of the profile to use to establish
     """
 
-    def run(self, server_id, zone_name, record_name, response_timeout=5):
-        super(UserAdd, self).run(response_timeout)
-        try:
-            return (True, self.record_get(server_id, zone_name, record_name))
-        except PowerDNSClientError as e:
-            return (False, "{}".format(e))
+    def run(self, username, password, roles, db_name, profile_name=None):
+        super().run(profile_name)
+
+        res = self.user_create(username, password, roles, db_name)
+        return (res.success, res.result)

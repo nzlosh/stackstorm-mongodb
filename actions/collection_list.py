@@ -1,14 +1,14 @@
 from lib.base import MongoClientAction
 
 
-class DatabaseList(MongoClientAction):
+class CollectionList(MongoClientAction):
     """
     List available databases on a mongo server
     """
 
-    def run(self, profile_name=None):
+    def run(self, db_name, profile_name=None):
         super().run(profile_name)
 
-        res = self.database_list()
+        res = self.collection_list(db_name)
 
         return (res.success, res.result)

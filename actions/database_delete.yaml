@@ -1,0 +1,15 @@
+---
+  name: "database_delete"
+  runner_type: "python-script"
+  description: "Delete a database."
+  enabled: true
+  entry_point: "database_delete.py"
+  parameters:
+    profile_name:
+      type: string
+      description: "Mongodb profile to be used for the action."
+      required: false
+    db_name:
+      type: string
+      description: "The name of database to be dropped."
+      required: true

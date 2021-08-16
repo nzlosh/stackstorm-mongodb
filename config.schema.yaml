@@ -1,11 +1,70 @@
 ---
-  api_key:
-    description: "PowerDNS API Key"
-    type: "string"
-    secret: true
+default_profile:
+  description: "The name of the default profile to use in actions."
+  type: string
+  required: true
+profiles:
+  description: "MongoDB cluster/server profiles"
+  type: "array"
+  required: true
+  items:
+    type: "object"
     required: true
-  api_url:
-    description: "URL to PowerDNS API."
-    type: "string"
-    secret: false
-    required: true
+    additionalProperties: false
+    properties:
+      name:
+        description: "Profile's name used by action's to target a MongoDB instance."
+        type: "string"
+        required: true
+      host:
+        description: "The FQDN or IP Address of the MongoDB instance."
+        type: "string"
+        secret: false
+        required: true
+        default: "127.0.0.1"
+      port:
+        description: "The MongoDB instance listening port."
+        type: "integer"
+        secret: false
+        required: true
+        default: 27017
+      replica_set:
+        description: "The Replica name when MongoDB uses a Replica Set ."
+        type: "string"
+        secret: false
+        required: false
+      username:
+        description: "The username to authenticate with MongoDB."
+        type: "string"
+        required: false
+      password:
+        description: "The password to authenticate with MongoDB."
+        type: "string"
+        required: false
+      auth_source:
+        description: "Name of the authentication database to authenticate username/password against."
+        type: "string"
+        required: false
+      enable_tls:
+        type: "boolean"
+        description: "If True, create the connection to the server using transport layer security."
+        default: false
+        required: false
+      tls_ca_file:
+        type: "string"
+        description: "A file containing a single or a bundle of certification authority certificates."
+        required: false
+      tls_key_file:
+        type: "string"
+        description: "A file containing the client certificate and private key."
+        required: false
+      tls_allow_invalid_certs:
+        type: "boolean"
+        description: "If True, continues the TLS handshake regardless of the outcome of the certificate verification process."
+        default: false
+        require: false
+      tls_allow_invalid_hostnames:
+        type: "boolean"
+        description: "If True, disables TLS hostname verification."
+        default: false
+        require: false

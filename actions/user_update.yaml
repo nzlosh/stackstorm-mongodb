@@ -1,9 +1,9 @@
 ---
-  name: "user_create"
+  name: "user_update"
   runner_type: "python-script"
-  description: "Create a database user."
+  description: "Update an existing database user."
   enabled: true
-  entry_point: "user_create.py"
+  entry_point: "user_update.py"
   parameters:
     profile_name:
       type: string
@@ -26,4 +26,8 @@
     db_name:
       type: string
       description: "The name of database to create the collection on."
+      required: true
+    mode:
+      type: string
+      description: "Mode of update. 'replace' or 'merge'."
       required: true

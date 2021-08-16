@@ -1,0 +1,19 @@
+---
+  name: "collection_delete"
+  runner_type: "python-script"
+  description: "Delete a collection in a database."
+  enabled: true
+  entry_point: "collection_delete.py"
+  parameters:
+    profile_name:
+      type: string
+      description: "Mongodb profile to be used for the action."
+      required: false
+    db_name:
+      type: string
+      description: "The name of database to delete the collection on."
+      required: true
+    name:
+      type: string
+      description: "The name of collection to deleted."
+      required: true

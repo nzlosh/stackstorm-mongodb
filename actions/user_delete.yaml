@@ -1,9 +1,9 @@
 ---
-  name: "user_create"
+  name: "user_delete"
   runner_type: "python-script"
-  description: "Create a database user."
+  description: "Delete an existing database user."
   enabled: true
-  entry_point: "user_create.py"
+  entry_point: "user_delete.py"
   parameters:
     profile_name:
       type: string
@@ -13,16 +13,6 @@
       type: string
       description: "Name of the user to be created."
       required: true
-    password:
-      type: string
-      secret: true
-      description: "Password of the user to be created."
-      required: true
-    roles:
-      type: array
-      description: "The list of Mongo roles to applied to the user."
-      required: true
-      default: ["read"]
     db_name:
       type: string
       description: "The name of database to create the collection on."

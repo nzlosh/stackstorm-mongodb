@@ -1,6 +1,6 @@
 ---
 name: mongodb
-description: StackStorm intergratation for MongoDB. https://powerdns.com/
+description: StackStorm intergratation for MongoDB administration.
 version: 0.0.1
 author: Carlos
 email: nzlosh@yahoo.com

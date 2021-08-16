@@ -1,0 +1,16 @@
+---
+  name: "user_list"
+  runner_type: "python-script"
+  description: "List users in a database."
+  enabled: true
+  entry_point: "user_list.py"
+  parameters:
+    profile_name:
+      type: string
+      description: "Mongodb profile to be used for the action."
+      required: false
+    db_name:
+      type: string
+      description: "The name of database to create the collection on."
+      required: true
+

@@ -1,0 +1,15 @@
+---
+  name: "collection_list"
+  runner_type: "python-script"
+  description: "List the available collections for a database."
+  enabled: true
+  entry_point: "collection_list.py"
+  parameters:
+    profile_name:
+      type: string
+      description: "Mongodb profile to be used for the action."
+      required: false
+    db_name:
+      type: string
+      description: "The name of database to list collections."
+      required: true
