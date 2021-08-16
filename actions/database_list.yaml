@@ -1,0 +1,12 @@
+---
+  name: "database_list"
+  runner_type: "python-script"
+  description: "Lists the avilable databases on a mongo server"
+  enabled: true
+  entry_point: "database_list.py"
+  parameters:
+    profile_name:
+      type: string
+      description: "The predefined mongodb profile to use."
+      required: true
+      default: default
