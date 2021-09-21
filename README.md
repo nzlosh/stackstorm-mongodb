@@ -1,6 +1,6 @@
 # mongodb integration pack
 
-> StackStorm intergratation for MongoDB administration.
+> StackStorm integration for MongoDB administration.
 Carlos <nzlosh@yahoo.com>
 
 
@@ -116,7 +116,7 @@ There are no sensors available for this pack.
 
  * To be able to administer MongoDB using this pack, a user account that has the privileges to manipulate databases, collections, documents is required.
 
-   For simlicity sakes, the `root` role has above and beyond the required access to preform any actions in this pack.  However, it is not recommended to use such a role in production.  The exact permissions to grant to the user will depend on the security policies of the organisation operating MongoDB.
+   For simplicity sakes, the `root` role has above and beyond the required access to preform any actions in this pack.  However, it is not recommended to use such a role in production.  The exact permissions to grant to the user will depend on the security policies of the organisation operating MongoDB.
 
    As an example of creating a root user account:
    ```
