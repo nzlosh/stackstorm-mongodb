@@ -17,7 +17,7 @@ The following options are required to be configured for the pack to work correct
 
 ### High available setups
 
-Mongo databases using replication must have the replica set in the configuration or the action will not switch to the PRIMARY server and will fail.
+Mongo databases using replication must have the replica set in the packs configuration otherwise the action will not automatically switch to the PRIMARY server and will fail.
 
 ## Actions
 
@@ -116,7 +116,7 @@ There are no sensors available for this pack.
 
  * To be able to administer MongoDB using this pack, a user account that has the privileges to manipulate databases, collections, documents is required.
 
-   For simplicity sakes, the `root` role has above and beyond the required access to preform any actions in this pack.  However, it is not recommended to use such a role in production.  The exact permissions to grant to the user will depend on the security policies of the organisation operating MongoDB.
+   For simlicity sakes, the `root` role has above and beyond the required access to preform any actions in this pack.  However, it is not recommended to use such a role in production.  The exact permissions to grant to the user will depend on the security policies of the organisation operating MongoDB.
 
    As an example of creating a root user account:
    ```
